@@ -1,0 +1,232 @@
+% **************************************************************************** %
+%                                theme settings                                %
+% **************************************************************************** %
+
+% ============================= CHANGE THESE !!! ============================= %
+%%%%% beamer theme (See more: https://deic.uab.cat/~iblanes/beamer_gallery/index_by_theme.html)
+\usetheme{AnnArbor}
+
+%%%%% beamer color theme (See more: https://atticus-sullivan.github.io/beamercolortheme/index.html)
+\newcommand{\catppuccinstyle}{Mocha}
+\newcommand{\catppuccinaccent}{Flamingo}
+%%%%% style: Mocha (default), Latte, Frappe, Macchiato
+%%%%% accent: Rosewater, Flamingo, Pink, Mauve, Red, Maroon, Peach, Yellow, Green, Teal, Sky, Sapphire, Blue, Lavender... (See more accents: https://catppuccin.com/palette)
+%
+
+%%%%% beamr navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+%%%%% math symbols style
+\unimathsetup{
+    math-style=ISO, % ISO: 大写希腊字母是 italic; TeX(default): 大写希腊字母是 upright.
+    % bold-style=ISO, % ISO: 大小写希腊, 拉丁字母粗体都是 italic; TeX(default): 只有小写希腊字母粗体是 italic.
+    % sans-style=italic, % upright or italic. Bold sans serif follows from the setting for sans serif; it is completely independent of the setting for bold.
+    % nabla=italic, % upright(default) or italic.
+    % partial=upright, % upright or italic(default).
+    % colon=literal, % The package option colon=literal forces ASCII input ‘:’ to be printed as \mathcolon instead.
+    % slash-delimiter % Be sure you know what you are doing if you use this.
+}
+% ---------------------------------------------------------------------------- %
+
+
+
+
+
+%%%%% BEAMER:
+%%%%% The main colors set in the default color theme are the following:
+%%%%% 1. {normal text} is black on white.
+%%%%% 2. {alert text} is red on white.
+%%%%% 3. {example text} is a dark green (green with 50% black)
+%%%%% 4. {structure} is set to a light version of MidnightBlue (more precisely, 20% red, 20% green, and 70% blue).
+
+
+
+%%%%% XCOLOR:
+%%%%% Within xcolor.sty, the following color names are defined:
+%%%%% red, green, blue, cyan, magenta, yellow, black, gray, white, darkgray, lightgray, brown, lime, olive, orange, pink, purple, teal, violet.
+
+
+
+
+
+
+
+
+
+
+
+
+% ================================ color theme =============================== %
+\usepackage[style=\catppuccinstyle,accent=\catppuccinaccent]{./assets/themes/Catppuccin/beamercolorthemecatppuccin}
+
+% ============================== itemize symbols ============================= %
+% \setlist{labelwidth=1em} % Set a positive labelwidth
+
+% 设置 itemize 格式
+\setlist[itemize,1]{ % 1级缩进
+    label={\small \color{Ctp\catppuccinstyle\catppuccinaccent} \ding{117}}
+}
+\setlist[itemize,2]{ % 2级缩进
+    label={\footnotesize\color{Ctp\catppuccinstyle\catppuccinaccent} \ding{108}}
+}
+\setlist[itemize,3]{ % 3级缩进
+    label={\scriptsize\color{Ctp\catppuccinstyle\catppuccinaccent} \ding{110}}
+}
+
+% ============================= enumerate symbols ============================ %
+
+%%%%% 如果你不想要 1.1 1.1.1 这样复杂的格式，可以使用下面的代码
+% \setlist[enumerate]{
+%     label = {\color{Ctp\catppuccinstyle\catppuccinaccent}\arabic*.},
+%     ref = \arabic*
+% }
+
+\setlist[enumerate,1]{ % 定义一级列表样式（默认 1., 2., ...）
+    label={\color{Ctp\catppuccinstyle\catppuccinaccent}\arabic*.},
+    ref=\arabic*,
+}
+\setlist[enumerate,2]{ % 定义二级列表样式（1.1, 1.2, ...）
+    label*={\color{Ctp\catppuccinstyle\catppuccinaccent}\arabic*.},
+    ref=\theenumi.\arabic*,
+    % leftmargin=2em,
+}
+\setlist[enumerate,3]{ % 定义三级列表样式（1.1.1, 1.1.2, ...）
+    label*={\color{Ctp\catppuccinstyle\catppuccinaccent}\arabic*.},
+    ref=\theenumii.\arabic*,
+    % leftmargin=4em,
+}
+
+
+% ================================= toc style ================================ %
+
+\setbeamercolor{section in toc}{fg=Ctp\catppuccinstyle\catppuccinaccent}
+\setbeamercolor{subsection in toc}{use={structure,normal text},fg=structure.fg!30!normal text.fg}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[ball]
+
+
+% ============================= hyper link style ============================= %
+\hypersetup{
+    % breaklinks=<boolean>, % 允许链接换行
+    colorlinks=true, % citations, page references, URLs, local file references, and other links.
+    linkcolor=., % Color for normal internal links.
+    % anchorcolor=<color>, % Color for anchor text. Ignored by most drivers.
+    % citecolor=<color>, % Color for bibliographical citations in text.
+    % filecolor=<color>, % Color for URLs which open local files.
+    % menucolor=<color>, % Color for Acrobat menu items.
+    % runcolor=<color>, % Color for run links (launch annotations).
+    urlcolor={cyan!30!normal text.fg!}, % Color for linked URLs.
+    % allcolors=<color>, % Set all color options (without border and field options).
+}
+
+
+% =================================== fonts ================================== %
+\usefonttheme{professionalfonts}
+
+%%%%% math font
+
+% \usepackage{firamath-otf}
+\setmathfont{FiraMath-Regular.otf}[
+    Path = assets/fonts/FiraMath/
+]
+
+% 一些 Fira Math 没有的字符
+
+\setmathfont{Latin Modern Math}[ % TexLive 提供
+    range = {bbit,scr,frak,tt,sfup,sfit,bfscr,bffrak,bfsfup,bfsfit}
+]
+\setmathfont{STIXTwoMath-Regular.otf}[ % TexLive 提供
+    range = {cal,bfcal},
+    StylisticSet = 1
+]
+\setmathfont{STIXTwoMath-Regular.otf}[ % TexLive 提供
+    range={"213D-"213F} % \symbb{\gamma,\Gamma,\Pi}
+]
+
+
+%%%%% English font
+\usepackage{fontspec}
+\setmainfont{SarasaTermSCNerd}[ % main font 等价于 roman font
+    % Contextuals = Alternate,  % otf 支持
+    Path = assets/fonts/SarasaTermSCNerd/,
+    Extension = .ttf,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    % SlantedFont = ⟨font name⟩ % 默认使用 ItalicFont
+    % BoldSlantedFont = ⟨font name⟩ % 默认使用 BoldItalicFont
+    UprightFont = *-Regular,
+    % SwashFont = ⟨font name⟩
+    % BoldSwashFont = ⟨font name⟩
+    % SmallCapsFont = ⟨font name⟩
+]
+\setsansfont{SarasaTermSCNerd}[
+    % Contextuals = Alternate,  % otf 支持
+    Path = assets/fonts/SarasaTermSCNerd/,
+    Extension = .ttf,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    % SlantedFont = ⟨font name⟩ % 默认使用 ItalicFont
+    % BoldSlantedFont = ⟨font name⟩ % 默认使用 BoldItalicFont
+    UprightFont = *-Regular,
+    % SwashFont = ⟨font name⟩
+    % BoldSwashFont = ⟨font name⟩
+    % SmallCapsFont = ⟨font name⟩
+]
+
+%%%%% Code font
+\setmonofont{SarasaTermSCNerd}[
+    % Contextuals = Alternate,  % otf 支持
+    Path = assets/fonts/SarasaTermSCNerd/,
+    Extension = .ttf,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    % SlantedFont = ⟨font name⟩ % 默认使用 ItalicFont
+    % BoldSlantedFont = ⟨font name⟩ % 默认使用 BoldItalicFont
+    UprightFont = *-Regular,
+    % SwashFont = ⟨font name⟩
+    % BoldSwashFont = ⟨font name⟩
+    % SmallCapsFont = ⟨font name⟩
+]
+
+%%%%% CJK font
+\usepackage{xeCJK}
+\setCJKsansfont{LXGWBright}[
+    Path = assets/fonts/LXGWBright/,
+    Extension = .ttf,
+    UprightFont = *-Regular,
+    BoldFont = *-Medium,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-MediumItalic,
+]
+\setCJKmonofont{SarasaTermSCNerd}[
+    % Contextuals = Alternate,  % otf 支持
+    Path = assets/fonts/SarasaTermSCNerd/,
+    Extension = .ttf,
+    BoldFont = *-Bold,
+    ItalicFont = *-Italic,
+    BoldItalicFont = *-BoldItalic,
+    % SlantedFont = ⟨font name⟩ % 默认使用 ItalicFont
+    % BoldSlantedFont = ⟨font name⟩ % 默认使用 BoldItalicFont
+    UprightFont = *-Regular,
+    % SwashFont = ⟨font name⟩
+    % BoldSwashFont = ⟨font name⟩
+    % SmallCapsFont = ⟨font name⟩
+]
+
+% **************************************************************************** %
+%                                     other                                    %
+% **************************************************************************** %
+
+%%%%% 这些设置是为了使形式为 $\widetilde{G_{+, 0}} \widehat{abc}$ 的公式能够正确显示. (ref: https://tex.stackexchange.com/questions/701542/how-to-get-a-widetilde-with-firamath)
+\newfontface{\dvmath}{texgyredejavu-math.otf}[
+  NFSSFamily=dvm,
+  Script=Math, % <---- important!
+]
+\DeclareSymbolFont{dvm}{TU}{dvm}{m}{n}
+\AtBeginDocument{%
+  \renewcommand{\widehat}{\Umathaccent 7 \symdvm "00302\relax}%
+  \renewcommand{\widetilde}{\Umathaccent 7 \symdvm "00303\relax}%
+}
