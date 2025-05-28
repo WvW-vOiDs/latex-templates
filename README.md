@@ -7,7 +7,7 @@
 
 ### 注意事项
 
-- 使用 `xelatex` 或 `lualatex` 编译.
+- 使用 `xelatex` 编译.
 - 使用 `\sym...` 代替 `\math...`. (如 `\symbb{R}` 代替 `\mathbb{R}`. 详见 [unicode-math 宏包文档](http://mirrors.ctan.org/macros/unicodetex/latex/unicode-math/unicode-math.pdf))
 
 
